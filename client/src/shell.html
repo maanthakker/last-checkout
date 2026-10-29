@@ -1,0 +1,88 @@
+<section class="screen splash" id="splash">
+  <p class="hotel">The Grand Wexley Hotel</p>
+  <h1 class="sign" id="sign" aria-label="LAST CHECKOUT"></h1>
+  <p class="tagline" id="tagline">You can check out any time. Just not tonight.</p>
+  <button class="press" id="press" type="button">Press any key</button>
+</section>
+
+<section class="screen checkin" id="checkin" hidden>
+  <form class="register" id="checkinForm" autocomplete="off">
+    <h2>Who’s checking in?</h2>
+    <p class="small">Two friends, one hotel. Names stay on this device.</p>
+    <label for="name1">You, in the green shirt</label>
+    <input id="name1" maxlength="16" placeholder="Hero 1" enterkeyhint="next">
+    <label for="name2">Your best friend, in the black shirt</label>
+    <input id="name2" maxlength="16" placeholder="Hero 2" enterkeyhint="go">
+    <div class="pair">
+      <div>
+        <label for="diffSel">Difficulty</label>
+        <select id="diffSel"><option value="easy">Easy</option><option value="normal">Normal</option><option value="hard">Hard</option></select>
+      </div>
+      <div>
+        <label for="scareSel">Scare level</label>
+        <select id="scareSel"><option value="mild">Mild</option><option value="spooky">Spooky</option><option value="max">Max</option></select>
+      </div>
+    </div>
+    <fieldset class="coop">
+      <legend>Hero team</legend>
+      <div class="seg" role="group" aria-label="How to play">
+        <button type="button" id="modeSolo" aria-pressed="true">Solo</button>
+        <button type="button" id="modeParty" aria-pressed="false">Co-op party</button>
+      </div>
+      <div id="partyBox" hidden>
+        <p class="small">Up to 4 heroes in the same hotel, against one Night Manager.</p>
+        <label for="nickIn">Nickname your friends see</label>
+        <input id="nickIn" maxlength="14" placeholder="Guest">
+        <label for="codeIn">Party code</label>
+        <div class="coderow">
+          <input id="codeIn" maxlength="6" autocapitalize="characters" spellcheck="false" aria-describedby="partyStatus">
+          <button type="button" class="mini" id="newCodeBtn">New code</button>
+          <button type="button" class="mini" id="joinBtn">Join</button>
+        </div>
+        <p class="small" id="partyStatus" aria-live="polite"></p>
+        <ul class="lobby" id="lobbyList"></ul>
+      </div>
+    </fieldset>
+    <button class="plate" type="submit">Check in</button>
+    <button class="plate paper" type="button" id="onlineBtn">Play online with a friend</button>
+    <button class="plate paper" type="button" id="continueBtn" hidden>Continue</button>
+    <p class="small" id="continueNote" hidden></p>
+  </form>
+  <aside class="hall" id="hall" hidden aria-labelledby="hallTitle">
+    <h3 id="hallTitle">Hall of Escapes</h3>
+    <ol id="hallList"></ol>
+  </aside>
+</section>
+
+<section class="screen checkin" id="online" hidden>
+  <div class="register">
+    <h2>Play online</h2>
+    <p class="small" id="onlineStatus" aria-live="polite">Connecting…</p>
+    <div id="onlineStart">
+      <button class="plate" id="createRoom" type="button">Create a room</button>
+      <label for="joinCode">Or type your friend’s room code</label>
+      <input id="joinCode" maxlength="6" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="ABC234">
+      <button class="plate paper" id="joinRoom" type="button">Join</button>
+    </div>
+    <div id="onlineRoom" hidden>
+      <p class="room-code" id="roomCode"></p>
+      <button class="plate paper" id="copyCode" type="button">Copy code</button>
+      <p class="small" id="roomHint"></p>
+      <div class="pair">
+        <div>
+          <label for="roleSel">You play</label>
+          <select id="roleSel"><option value="hero">The hero</option><option value="monster">The Night Manager</option></select>
+        </div>
+        <div>
+          <label for="floorSel">Floor</label>
+          <select id="floorSel"></select>
+        </div>
+      </div>
+      <button class="plate" id="readyBtn" type="button">Ready</button>
+      <button class="plate paper" id="leaveRoom" type="button">Leave the room</button>
+    </div>
+    <button class="plate paper" id="onlineBack" type="button">Back</button>
+  </div>
+</section>
+<div id="gameRoot"></div>
+<div class="screen fatal" id="fatal" hidden></div>

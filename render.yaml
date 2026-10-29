@@ -1,0 +1,15 @@
+# Render Blueprint: one web service serves the React build, the API and Socket.IO.
+services:
+  - type: web
+    name: last-checkout
+    runtime: node
+    region: frankfurt
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: MONGODB_URI
+        sync: false

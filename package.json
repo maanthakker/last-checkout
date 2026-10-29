@@ -1,0 +1,23 @@
+{
+  "name": "last-checkout",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LAST CHECKOUT: a first-person horror escape game at the haunted Grand Wexley Hotel. React client, Node/Express + Socket.IO server, MongoDB leaderboard.",
+  "type": "module",
+  "engines": {
+    "node": ">=18.18"
+  },
+  "scripts": {
+    "build": "npm install --prefix client --include=dev && npm run build --prefix client",
+    "start": "node server/index.js",
+    "dev:server": "node --watch server/index.js",
+    "dev:client": "npm run dev --prefix client",
+    "test": "node server/rooms.test.js"
+  },
+  "dependencies": {
+    "compression": "1.7.5",
+    "express": "4.21.2",
+    "mongoose": "8.9.5",
+    "socket.io": "4.8.1"
+  }
+}
